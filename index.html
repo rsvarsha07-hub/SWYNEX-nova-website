@@ -1,0 +1,615 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOVA - Creative Digital Agency</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f9ff;
+    color: #202044;
+    line-height: 1.6;
+}
+
+header {
+    background: white;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 15px #0000000d;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #6546e8;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #6546e8;
+}
+
+.nav-button {
+    background: #6546e8;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 27px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.hero {
+    min-height: 570px;
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    background: linear-gradient(120deg, #f1edff, #fff4f9);
+}
+
+.hero-content, .hero-art {
+    flex: 1;
+}
+
+.tag {
+    display: inline-block;
+    color: #6546e8;
+    background: #e5dfff;
+    padding: 8px 16px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 5vw, 62px);
+    line-height: 1.15;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #6546e8;
+}
+
+.hero p {
+    color: #65657a;
+    max-width: 520px;
+    margin-bottom: 28px;
+    font-size: 17px;
+}
+
+.primary-btn {
+    display: inline-block;
+    background: #6546e8;
+    color: white;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    background: #4930b9;
+    transform: translateY(-3px);
+}
+
+.hero-art {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.art-card {
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(135deg, #7455ed, #e783c5);
+    border-radius: 35% 65% 60% 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 125px;
+    box-shadow: 0 25px 60px #6546e840;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+section {
+    padding: 80px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #77778a;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.feature-card {
+    background: white;
+    padding: 32px 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px #2424500b;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px #6546e81c;
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eee9ff;
+    border-radius: 15px;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: #77778a;
+}
+
+.about {
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-image {
+    flex: 1;
+    min-height: 300px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #dcd3ff, #ffd9ed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    color: #77778a;
+    margin-bottom: 18px;
+}
+
+.about-content ul {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.about-content li {
+    margin: 10px 0;
+}
+
+.about-content li::before {
+    content: "✓ ";
+    color: #6546e8;
+    font-weight: bold;
+}
+
+.contact {
+    background: #f1edff;
+}
+
+.contact-container {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px #0000000a;
+}
+
+.contact-container input,
+.contact-container textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.contact-container textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-container button {
+    width: 100%;
+}
+
+#form-message {
+    margin-top: 15px;
+    color: #6546e8;
+    text-align: center;
+}
+
+footer {
+    background: #202044;
+    color: white;
+    padding: 35px 8%;
+    text-align: center;
+}
+
+footer p {
+    color: #d1d1e2;
+    margin-top: 10px;
+}
+
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+@media (max-width: 850px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .art-card {
+        width: 280px;
+        height: 280px;
+        font-size: 100px;
+    }
+
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about {
+        flex-direction: column;
+    }
+
+    .about-image {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 15px 5%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 25px;
+        flex-direction: column;
+        box-shadow: 0 10px 15px #00000010;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .hero {
+        padding: 55px 6%;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    section {
+        padding: 60px 6%;
+    }
+
+    .section-title h2,
+    .about-content h2 {
+        font-size: 29px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .art-card {
+        width: 230px;
+        height: 230px;
+        font-size: 85px;
+    }
+
+    .contact-container {
+        padding: 25px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">NOVA.</div>
+
+    <button class="menu-btn" id="menu-btn"
+        aria-label="Toggle navigation"
+        aria-expanded="false">☰</button>
+
+    <nav id="navbar">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-button">Get Started</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <span class="tag">✨ Creative Digital Solutions</span>
+
+        <h1>Build Your <span>Digital Future</span> With NOVA</h1>
+
+        <p>
+            We help businesses grow with creative designs,
+            modern websites, and innovative digital solutions.
+            Let's turn your ideas into reality.
+        </p>
+
+        <a href="#services" class="primary-btn">Explore Services →</a>
+    </div>
+
+    <div class="hero-art">
+        <div class="art-card">🚀</div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Everything you need to grow your digital presence.</p>
+    </div>
+
+    <div class="features">
+        <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>UI/UX Design</h3>
+            <p>We create beautiful, user-friendly designs that
+            provide a great experience on every device.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">💻</div>
+            <h3>Web Development</h3>
+            <p>Responsive and modern websites built to help
+            your business stand out online.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Digital Solutions</h3>
+            <p>Smart digital experiences designed to connect
+            your business with more people.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Fast Performance</h3>
+            <p>Optimized websites that load quickly and work
+            smoothly across different devices.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Secure Websites</h3>
+            <p>We follow good development practices to help
+            build reliable digital experiences.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">💡</div>
+            <h3>Creative Ideas</h3>
+            <p>Fresh ideas and innovative approaches to make
+            your brand unique and memorable.</p>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="about-image">🌟</div>
+
+    <div class="about-content">
+        <h2>Who We Are</h2>
+
+        <p>
+            NOVA is a creative digital agency focused on
+            building modern and meaningful online experiences.
+        </p>
+
+        <p>
+            Our goal is to combine creativity and technology
+            to help people transform their ideas into reality.
+        </p>
+
+        <ul>
+            <li>Creative and modern designs</li>
+            <li>Mobile-friendly websites</li>
+            <li>User-focused development</li>
+            <li>Innovative digital experiences</li>
+        </ul>
+
+        <a href="#contact" class="primary-btn">Contact Us</a>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="section-title">
+        <h2>Let's Work Together</h2>
+        <p>Have a project in mind? Send us a message!</p>
+    </div>
+
+    <div class="contact-container">
+        <form id="contact-form">
+            <input type="text" id="name"
+                placeholder="Your Name" required>
+
+            <input type="email" id="email"
+                placeholder="Your Email" required>
+
+            <input type="text" id="subject"
+                placeholder="Subject" required>
+
+            <textarea id="message"
+                placeholder="Write your message here..."
+                required></textarea>
+
+            <button type="submit" class="primary-btn">
+                Send Message →
+            </button>
+
+            <p id="form-message"></p>
+        </form>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="logo">NOVA.</div>
+
+    <p>Creating digital experiences that inspire and connect.</p>
+
+    <div class="social-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <p>© 2026 NOVA. All rights reserved.</p>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menu-btn");
+const navbar = document.getElementById("navbar");
+
+menuBtn.addEventListener("click", function () {
+    navbar.classList.toggle("active");
+
+    const isOpen = navbar.classList.contains("active");
+    menuBtn.setAttribute("aria-expanded", isOpen);
+    menuBtn.textContent = isOpen ? "✕" : "☰";
+});
+
+document.querySelectorAll("#navbar a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        navbar.classList.remove("active");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰";
+    });
+});
+
+document.getElementById("contact-form")
+.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const message = document.getElementById("form-message");
+
+    if (name === "") {
+        message.textContent = "Please enter your name.";
+        return;
+    }
+
+    message.textContent =
+        "Thank you, " + name +
+        "! Your form has been submitted successfully.";
+
+    this.reset();
+});
+</script>
+
+</body>
+</html>
